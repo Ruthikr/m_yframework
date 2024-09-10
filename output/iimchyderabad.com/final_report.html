@@ -1,0 +1,40 @@
+<html><head><title>Report for /home/kali/hacking_framework/utils/../output/iimchyderabad.com</title></head><body><h1>Reconnaissance and Vulnerability Report</h1><h2>nmap_results.json</h2><pre>{"target": "iimchyderabad.com", "result": "Starting Nmap 7.94SVN ( https://nmap.org ) at 2024-09-04 14:06 UTC\nNmap scan report for iimchyderabad.com (103.27.86.220)\nHost is up (0.32s latency).\nrDNS record for 103.27.86.220: static-103-27-86-220.ctrls.in\n\nPORT    STATE SERVICE  VERSION\n80/tcp  open  http     Microsoft IIS httpd 10.0\n443/tcp open  ssl/http Microsoft HTTPAPI httpd 2.0 (SSDP/UPnP)\nService Info: OS: Windows; CPE: cpe:/o:microsoft:windows\n\nService detection performed. Please report any incorrect results at https://nmap.org/submit/ .\nNmap done: 1 IP address (1 host up) scanned in 25.76 seconds"}</pre><h2>whois_results.json</h2><pre>{"target": "iimchyderabad.com", "result": "getaddrinfo(whois.verisign-grs.com): Temporary failure in name resolution"}</pre><h2>dig_results.json</h2><pre>{"target": "iimchyderabad.com", "result": ";; Connection to 9.9.9.9#53(9.9.9.9) for iimchyderabad.com failed: timed out.\n;; no servers could be reached\n;; Connection to 9.9.9.9#53(9.9.9.9) for iimchyderabad.com failed: timed out.\n;; no servers could be reached\n;; Connection to 9.9.9.9#53(9.9.9.9) for iimchyderabad.com failed: timed out.\n;; Connection to 149.112.112.112#53(149.112.112.112) for iimchyderabad.com failed: timed out.\n;; no servers could be reached"}</pre><h2>whatweb_results.json</h2><pre>{"target": "iimchyderabad.com", "result": "\u001b[1m\u001b[31mERROR Opening: http://iimchyderabad.com - Permission denied - getifaddrs\u001b[0m"}</pre><h2>dnsrecon_results.json</h2><pre>{"target": "iimchyderabad.com", "result": "[*] std: Performing General Enumeration against: iimchyderabad.com...\n[-] DNSSEC is not configured for iimchyderabad.com\n[*] \t SOA ns.iimchyderabad.com 103.27.86.220\n[*] \t NS ns.iimchyderabad.com 103.27.86.220\n[*] \t MX us2.mx2.mailhostbox.com 162.215.2.27\n[*] \t MX us2.mx1.mailhostbox.com 162.215.3.26\n[*] \t MX us2.mx3.mailhostbox.com 162.215.3.25\n[*] \t A iimchyderabad.com 103.27.86.220\n[*] \t TXT iimchyderabad.com v=spf1 redirect=_spf.mailhostbox.com\n[*] Enumerating SRV Records\n[-] No SRV Records Found for iimchyderabad.com"}</pre><h2>analysis_results.json</h2><pre>## Potential Vulnerabilities & Querying the Vulners API
+
+Based on the provided reconnaissance data, here's a breakdown of potential vulnerabilities and suggested queries to the Vulners API:
+
+**1. Open Port Analysis:**
+
+* **Nmap Results (HTTP/HTTPS):**  The Nmap scan identified open ports 80/tcp for http and 443/tcp for ssl/http (Microsoft HTTPAPI). This indicates a possible active web server on the target, potentially exposing sensitive information or services.
+    * **Vulners API Query:** `target: iimchyderabad.com; port_type: tcp; ports: 80, 443`
+
+**2. DNS Information and Potential Compromises:**
+
+* **Whois Lookup Failure:**  The whois lookup failed on "iimchyderabad.com". This could indicate the target is intentionally obfuscating its information or struggling with network connectivity.
+    * **Vulners API Query:** `target: iimchyderabad.com; query: dns-related vulnerability` 
+
+* **DNSSEC Configuration (dnsrecon_results):** The absence of DNSSEC configuration in the target suggests a potential for spoofing and other attacks on the website.
+    * **Vulners API Query:**  `target: iimchyderabad.com; query: DNSSEC configuration, security vulnerabilities`
+
+**3. Possible Services Running on the System:** 
+
+* **WhatWeb Results (Permission denied):** The WhatWeb result indicates a possible denial of service (DoS) or permission issues when attempting to access the website through HTTP. This could indicate potential security breaches and vulnerabilities in the target's server configuration.
+    * **Vulners API Query:**  `target: iimchyderabad.com; query: web servers, application security, performance bottlenecks`
+
+**4. Vulnerability Assessment & Potential Exploits:**
+
+
+* **DNS Enumeration (dnsrecon_results):** The DNS enumeration indicates the target's server configuration and potential exploits based on SRV records, MX records, A records, and TXT records.  
+    * **Vulners API Query:** `target: iimchyderabad.com; query: web vulnerabilities, exploitability, OS vulnerabilities` 
+
+**Recommendations for Vulners API Queries:**
+
+ * **Targeted Queries:** Use the provided data to refine your queries based on specific areas of interest (e.g., "Apache/Nginx versions", "vulnerable code analysis").
+  * **Specificity:**  Focus on specific port types and service names in your queries to gather accurate information from Vulners API responses. 
+
+
+**Important Considerations:**
+
+* **Data Analysis:** Analyze the collected data for context and potentially prioritize vulnerable systems based on potential impact or risk.
+* **Ethical Hacking:** Ensure any actions taken are within legal boundaries and respect privacy and security of the target system.
+
+By utilizing the Vulners API, you can gather valuable information about potential vulnerabilities in the target system, facilitating targeted security assessments and proactive mitigation strategies. </pre></body></html>

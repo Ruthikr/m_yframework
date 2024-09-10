@@ -1,0 +1,4 @@
+{
+  "targets": ["iimchyderabad.com"],
+  "tools": ["nmap", "nikto", "whois", "dig", "whatweb", "dnsrecon"]
+}
